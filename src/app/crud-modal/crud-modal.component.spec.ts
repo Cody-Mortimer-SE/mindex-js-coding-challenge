@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CrudModalComponent } from './crud-modal.component';
 import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
-import { ReportCrudEvent, CrudEventType } from '../support';
+import { ReportCrudEvent, CrudEventType } from '../crud-event';
 import { Employee } from '../employee';
 
 describe('CrudModalComponent', () => {

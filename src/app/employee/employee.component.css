@@ -1,7 +1,10 @@
 .report-row{
     width: 100%;;
 }
-.mat-list {
+.employee{
+    margin: 0.5rem;
+}
+.mat-list{
     /* Alignment here could be better, for any kind of production code I'd spend longer in the land of perfectly aligning buttons and setting padding */
     .mat-list-item{
         padding-top: 0.5rem;
@@ -20,7 +23,7 @@
     .button-container{
         float: right;
     }
-    .reports-header {
+    .reports-header{
         background-color: #6F6F6F;
         color: #FFFFFF;
         padding: 1rem;

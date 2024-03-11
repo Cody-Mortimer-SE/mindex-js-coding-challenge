@@ -1,11 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {catchError, map, reduce} from 'rxjs/operators';
-
-import {Employee} from '../employee';
-import {EmployeeService} from '../employee.service';
+import { Component, OnInit } from '@angular/core';
+import { catchError, map, reduce } from 'rxjs/operators';
+import { Employee } from '../employee';
+import { EmployeeService } from '../employee.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CrudModalComponent } from '../crud-modal/crud-modal.component';
-import { ReportCrudEvent, CrudEventType } from '../support';
+import { ReportCrudEvent, CrudEventType } from '../crud-event';
 
 @Component({
   selector: 'app-employee-list',
@@ -28,7 +27,7 @@ export class EmployeeListComponent implements OnInit {
     /* 
       In a real-world scenario we might want to balance retrieving all employees vs singular employees based on the use case,
       but for our purposes here doing a getAll handles updating both the employee that was updated, as well as removing them as a
-      report from their manager
+      report from their manager in the case of a removal
     */ 
     this.employeeService.getAll()
       .pipe(
@@ -71,7 +70,7 @@ export class EmployeeListComponent implements OnInit {
       data: { crudEvent: crudEvent }
     });
 
-    // Take action on the modal close based on the event type, and if the closure comes with an event
+    // Take action on the modal close based on the event type, if the closure comes with an event
     dialogRef.afterClosed().subscribe(event => {
       if (event && event.eventType) {
         switch(event.eventType) {

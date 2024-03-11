@@ -1,7 +1,9 @@
-<mat-card class="employee">
+<mat-card class="employee" id="{{'employee-card-' + employee.id}}">
   <mat-card-header>
-    <mat-card-title>{{employee.firstName}} {{employee.lastName}}, {{employee.position}}</mat-card-title>
-    <mat-card-subtitle><span class="subtitle">Employee Id: </span>{{employee.id}} <span class="subtitle">Total Reports: </span>{{allReports.length}}</mat-card-subtitle>
+    <mat-card-title id="{{'employee-title-' + employee.id}}">{{employee.firstName}} {{employee.lastName}}, {{employee.position}}</mat-card-title>
+    <mat-card-subtitle id="{{'employee-subtitle-' + employee.id}}">
+      <span class="subtitle">Employee Id: </span>{{employee.id}} <span class="subtitle">Total Reports: </span>{{allReports.length}}
+    </mat-card-subtitle>
   </mat-card-header>
   <mat-list>
     <div class="reports-header">Direct Reports:</div>
@@ -9,12 +11,14 @@
       <mat-list-item *ngFor="let report of directReports; index as i;">
         <span class="report-row">
           <span matListItemLine>
-            <span>{{report.firstName}}  {{report.lastName}}, {{report.position}}</span>
+            <span id="{{'report-title-' + report.id}}">{{report.firstName}}  {{report.lastName}}, {{report.position}}</span>
             <div class="button-container">
-              <button mat-icon-button color="secondary" attr.aria-label="Edit {{report.firstName}} {{report.lastName}}" (click)="editReportCompensation(report)">
+              <button mat-icon-button color="secondary" id="{{'report-edit-button-' + report.id}}" 
+                (click)="editReportCompensation(report)" attr.aria-label="Edit {{report.firstName}} {{report.lastName}}">
                 <mat-icon>edit</mat-icon>
               </button>
-              <button mat-icon-button color="secondary" attr.aria-label="Remove {{report.firstName}} {{report.lastName}}" (click)="removeReport(report)">
+              <button mat-icon-button color="secondary" id="{{'report-remove-button-' + report.id}}"
+                (click)="removeReport(report)" attr.aria-label="Remove {{report.firstName}} {{report.lastName}}">
                 <mat-icon>delete</mat-icon>
               </button>
             </div>

@@ -1,6 +1,6 @@
-import {Component, Output, Input, EventEmitter, OnInit} from '@angular/core';
-import {Employee} from '../employee';
-import { ReportCrudEvent, CrudEventType } from '../support';
+import { Component, Output, Input, EventEmitter, OnInit } from '@angular/core';
+import { Employee } from '../employee';
+import { ReportCrudEvent, CrudEventType } from '../crud-event';
 
 @Component({
   selector: 'app-employee',

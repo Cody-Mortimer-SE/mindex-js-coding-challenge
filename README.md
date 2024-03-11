@@ -1,12 +1,15 @@
 # Cody's Comments/Instructions
-- This was written using node v16.20.2. Normally I'd want to be on a more recent version, but it looks like some SSL changes after Node 17 create some errors with the base project.
+- This was written using node v16.20.2. Normally I'd want to be on the most recent version, but it looks like some SSL changes after Node 17 create some errors with the base project.
   For any kind of production release we'd obviously want to be on the most recent version of anything we can be, for both features and security.
 - Outside of that, things should work with a simple 'nmps install' and 'npm start'
-- I've set up some relatively basic unit tests for the components I've added/edited which can be run with 'ng test'.
+- I've set up some relatively basic unit tests for the components I've added/edited which can be run with 'npm test'.
+  - These tests focus on testing individual functions, they don't go to the level of verifying the DOM, etc
 - I'll fully admit that the styling could use some additional work. I mainly aimed towards getting relatively close to the example images, without falling into the hole that is
   setting up grids, getting everything perfectly aligned and spaced, etc
-- I think there's a few points where I've gone outside of what was "expected" based on the setup (ie, I didn't end up using the singular get call in the employee service). I've tried
+- I think there's a few points where I've gone outside of what was "expected" based on the setup (ie, I didn't end up using the get call in the employee service). I've tried
   to call out those situations and my reasoning in my comments.
+- I've manually added some base compensation values to the employees in backendless-mock.service.ts, for the sake of having an initial value. If this was meant to be optional,
+  we'd want to mark the property in employee.ts as optional and check that the value has been assigned when working with it, as appropriate.
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------

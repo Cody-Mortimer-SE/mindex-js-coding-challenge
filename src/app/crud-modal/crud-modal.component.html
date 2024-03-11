@@ -1,36 +1,42 @@
 
 <!--Edit-->
-<form *ngIf="crudEvent.eventType == eventEnum.Edit" class="edit-form">
+<form *ngIf="crudEvent.eventType == eventEnum.Edit" class="edit-form" id="edit-form">
     <h2>Update Compensation</h2>
     <mat-form-field>
         <mat-label>First Name</mat-label>
-        <input matInput disabled name="first" [(ngModel)]="crudEvent.report.firstName">
+        <input matInput disabled name="first" id="first-name-input" [(ngModel)]="crudEvent.report.firstName">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Last Name</mat-label>
-        <input matInput disabled name="last" [(ngModel)]="crudEvent.report.lastName">
+        <input matInput disabled name="last" id="last-name-input" [(ngModel)]="crudEvent.report.lastName">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Title</mat-label>
-        <input matInput disabled name="title" [(ngModel)]="crudEvent.report.position">
+        <input matInput disabled name="title" id="position-input" [(ngModel)]="crudEvent.report.position">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Compensation</mat-label>
-        <input matInput name="compensation" type="number" step="1" [(ngModel)]="crudEvent.report.compensation" required>
+        <!-- Arbitrary min and max, but let's not let people approve negative or billion dollar salaries -->
+        <input matInput name="compensation" type="number" step="1" min="1" max="999999999"
+            id="compensation-input" [(ngModel)]="crudEvent.report.compensation" required>
         <span matPrefix>$</span>
     </mat-form-field>
     <div class="button-container">
-        <button mat-raised-button [mat-dialog-close]="crudEvent">Save</button>
-        <button mat-raised-button [mat-dialog-close]>Cancel</button>
+        <button mat-raised-button id="edit-save-button" [mat-dialog-close]="crudEvent"
+            aria-label="Save Edit {{crudEvent.report.firstName}} {{crudEvent.report.lastName}}">Save</button>
+        <button mat-raised-button id="edit-cancel-button" [mat-dialog-close]
+            aria-label="Cancel Edit {{crudEvent.report.firstName}} {{crudEvent.report.lastName}}">Cancel</button>
     </div>
 </form>
 <!--Delete-->
-<div *ngIf="crudEvent.eventType == eventEnum.Delete">
+<div *ngIf="crudEvent.eventType == eventEnum.Delete" id="remove-form">
     <h2>Delete Direct Report</h2>
     <p>Permanently delete direct report {{crudEvent.report.firstName}} {{crudEvent.report.lastName}}?</p>
     <p>This action cannot be undone</p>
     <div class="button-container">
-        <button mat-raised-button [mat-dialog-close]="crudEvent">Confirm</button>
-        <button mat-raised-button [mat-dialog-close]>Cancel</button>
+        <button mat-raised-button id="remove-confirm-button" [mat-dialog-close]="crudEvent"
+            aria-label="Confirm Remove {{crudEvent.report.firstName}} {{crudEvent.report.lastName}}">Confirm</button>
+        <button mat-raised-button id="remove-cancel-button" [mat-dialog-close]
+            aria-label="Cancel Remove {{crudEvent.report.firstName}} {{crudEvent.report.lastName}}">Cancel</button>
     </div>
 </div>

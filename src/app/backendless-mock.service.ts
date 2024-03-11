@@ -9,7 +9,7 @@ export class BackendlessMockService implements InMemoryDbService {
         lastName: 'McGee',
         position: 'CEO',
         directReports: [2, 3],
-        compensation: 100
+        compensation: 1000000
       },
       {
         id: 2,
@@ -17,21 +17,21 @@ export class BackendlessMockService implements InMemoryDbService {
         lastName: 'Thompson',
         position: 'Dev Manager',
         directReports: [4],
-        compensation: 50
+        compensation: 100000
       },
       {
         id: 3,
         firstName: 'Rock',
         lastName: 'Strongo',
         position: 'Lead Tester',
-        compensation: 50
+        compensation: 100000
       },
       {
         id: 4,
         firstName: 'Max',
         lastName: 'Power',
         position: 'Junior Software Engineer',
-        compensation: 25
+        compensation: 75000
       }
     ];
     return {employees};

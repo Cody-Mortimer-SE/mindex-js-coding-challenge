@@ -1,9 +1,8 @@
-import {async, TestBed} from '@angular/core/testing';
-import {Component} from '@angular/core';
-
-import {EmployeeComponent} from './employee.component';
+import { async, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { EmployeeComponent } from './employee.component';
 import { Employee } from '../employee';
-import { CrudEventType, ReportCrudEvent } from '../support';
+import { CrudEventType, ReportCrudEvent } from '../crud-event';
 
 @Component({selector: 'app-mat-card', template: ''})
 class CardComponent {

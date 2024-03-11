@@ -1,11 +1,10 @@
-import {async, TestBed} from '@angular/core/testing';
-import {Component, Input} from '@angular/core';
-
-import {EmployeeListComponent} from './employee-list.component';
-import {EmployeeService} from '../employee.service';
+import { async, TestBed } from '@angular/core/testing';
+import { Component, Input } from '@angular/core';
+import { EmployeeListComponent } from './employee-list.component';
+import { EmployeeService } from '../employee.service';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { Employee } from '../employee';
-import { ReportCrudEvent, CrudEventType } from '../support';
+import { ReportCrudEvent, CrudEventType } from '../crud-event';
 import { CrudModalComponent } from '../crud-modal/crud-modal.component';
 import { of } from 'rxjs';
 

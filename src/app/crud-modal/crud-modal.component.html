@@ -1,0 +1,36 @@
+
+<!--Edit-->
+<form *ngIf="crudEvent.eventType == eventEnum.Edit" class="edit-form">
+    <h2>Update Compensation</h2>
+    <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput disabled name="first" [(ngModel)]="crudEvent.report.firstName">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput disabled name="last" [(ngModel)]="crudEvent.report.lastName">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput disabled name="title" [(ngModel)]="crudEvent.report.position">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Compensation</mat-label>
+        <input matInput name="compensation" type="number" step="1" [(ngModel)]="crudEvent.report.compensation" required>
+        <span matPrefix>$</span>
+    </mat-form-field>
+    <div class="button-container">
+        <button mat-raised-button [mat-dialog-close]="crudEvent">Save</button>
+        <button mat-raised-button [mat-dialog-close]>Cancel</button>
+    </div>
+</form>
+<!--Delete-->
+<div *ngIf="crudEvent.eventType == eventEnum.Delete">
+    <h2>Delete Direct Report</h2>
+    <p>Permanently delete direct report {{crudEvent.report.firstName}} {{crudEvent.report.lastName}}?</p>
+    <p>This action cannot be undone</p>
+    <div class="button-container">
+        <button mat-raised-button [mat-dialog-close]="crudEvent">Confirm</button>
+        <button mat-raised-button [mat-dialog-close]>Cancel</button>
+    </div>
+</div>

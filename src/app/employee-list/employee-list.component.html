@@ -1,5 +1,6 @@
-<mat-grid-list class="employee-list" cols="4">
-  <mat-grid-tile *ngFor="let emp of employees">
-    <app-employee [employee]="emp"></app-employee>
-  </mat-grid-tile>
-</mat-grid-list>
+<mat-list class="employee-list" cols="4">
+  <div *ngFor="let emp of employees">
+    <app-employee [employee]="emp" [allEmployees]="employees" 
+      (editCompensationEvent)="handleEditCompensation($event)" (removeReportEvent)="handleRemoveReport($event)"></app-employee>
+  </div>
+</mat-list>

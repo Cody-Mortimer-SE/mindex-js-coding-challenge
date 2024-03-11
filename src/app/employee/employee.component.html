@@ -1,12 +1,29 @@
 <mat-card class="employee">
   <mat-card-header>
-    <mat-card-title>{{employee.lastName}}, {{employee.firstName}}</mat-card-title>
-    <mat-card-subtitle>{{employee.id}}</mat-card-subtitle>
+    <mat-card-title>{{employee.firstName}} {{employee.lastName}}, {{employee.position}}</mat-card-title>
+    <mat-card-subtitle><span class="subtitle">Employee Id: </span>{{employee.id}} <span class="subtitle">Total Reports: </span>{{allReports.length}}</mat-card-subtitle>
   </mat-card-header>
-  <mat-card-content>
-    <dl>
-      <dt>Job Title</dt>
-      <dd>{{employee.position}}</dd>
-    </dl>
-  </mat-card-content>
+  <mat-list>
+    <div class="reports-header">Direct Reports:</div>
+    <div  *ngIf="directReports && directReports.length > 0">
+      <mat-list-item *ngFor="let report of directReports; index as i;">
+        <span class="report-row">
+          <span matListItemLine>
+            <span>{{report.firstName}}  {{report.lastName}}, {{report.position}}</span>
+            <div class="button-container">
+              <button mat-icon-button color="secondary" attr.aria-label="Edit {{report.firstName}} {{report.lastName}}" (click)="editReportCompensation(report)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="secondary" attr.aria-label="Remove {{report.firstName}} {{report.lastName}}" (click)="removeReport(report)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </span>
+        </span>
+      </mat-list-item>
+    </div>
+    <mat-list-item *ngIf="!directReports || directReports.length == 0">
+      <span>This employee has no reports</span>
+    </mat-list-item>
+  </mat-list>
 </mat-card>

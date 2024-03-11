@@ -1,0 +1,40 @@
+.report-row{
+    width: 100%;;
+}
+.mat-list {
+    /* Alignment here could be better, for any kind of production code I'd spend longer in the land of perfectly aligning buttons and setting padding */
+    .mat-list-item{
+        padding-top: 0.5rem;
+        
+        .mat-list-item-content{
+            padding: 0rem;
+        }
+    }
+    .mat-list-item:nth-child(odd){
+        background-color: #E3E3E3;
+    }
+            
+    .mat-list-item:nth-child(even){
+        background-color: #F7F7F7;
+    }
+    .button-container{
+        float: right;
+    }
+    .reports-header {
+        background-color: #6F6F6F;
+        color: #FFFFFF;
+        padding: 1rem;
+    }
+}
+
+.mat-card{
+    .mat-card-header{
+        .mat-card-title{
+            color: #1A5CAD;
+            font-weight: bold;
+        }
+        .subtitle{
+            font-weight: bold;
+        }
+    }
+}
